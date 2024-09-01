@@ -3,6 +3,7 @@ import { MotionProps, motion } from "framer-motion";
 import { twMerge } from "tailwind-merge";
 import { FiArrowRight, FiMail, FiMapPin } from "react-icons/fi";
 import { SiGithub } from "react-icons/si";
+import Image from "next/image";
 
 const paymentlogo = "/assets/Hands Give.svg"
 
@@ -61,13 +62,13 @@ const Block = ({ className, ...rest }: BlockProps) => {
 
 const HeaderBlock = () => (
   <Block className="col-span-12 row-span-2 md:col-span-6">
-    <img
+    <Image
       src="https://imgtr.ee/images/2024/09/01/9c26b3e090e64746eddeee1019935e07.jpeg"
       alt="avatar"
       className="mb-4 size-14 rounded-full"
     />
     <h1 className="mb-12 text-4xl font-medium leading-tight">
-      Hi, I'm Jigyasu.{" "}
+      Hi, I&apos;m Jigyasu.{" "}
       <span className="text-zinc-400">
         I build cool websites like this one.
       </span>
@@ -94,7 +95,7 @@ const SocialsBlock = () => (
         href="https://blog.jigyasumakkxr.online/"
         className="grid h-full place-content-center text-3xl text-white"
       >
-        <img src="https://imgtr.ee/images/2024/09/01/2106cd0da9eac236d29519775035d3a6.png" alt="" className="h-9 w-fit" />
+        <Image src="https://imgtr.ee/images/2024/09/01/2106cd0da9eac236d29519775035d3a6.png" alt="" className="h-9 w-fit" />
       </a>
     </Block>
     <Block
@@ -122,7 +123,7 @@ const SocialsBlock = () => (
         href="https://payments.jigyasumakkxr.online/"
         className="grid h-full place-content-center text-3xl text-white"
       >
-        <img src={paymentlogo} alt="" className="h-12 w-fit" />
+        <Image src={paymentlogo} alt="" className="h-12 w-fit" />
       </a>
     </Block>
     <Block
