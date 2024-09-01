@@ -1,19 +1,18 @@
 "use client";
-import React, { useState } from "react";
-import { cn } from "@/lib/utils";
-import { HoveredLink, Menu, MenuItem, ProductItem } from "@/components/ui/navbar-menu";
-import { BubbleText } from "@/components/ui/bubble-text";
+import React from "react";
 import { ContainerScroll } from "@/components/ui/container-scroll-animation";
 import Image from "next/image";
 import { FloatingDock } from "@/components/ui/floating-dock";
 import {
   IconBrandGithub,
+  IconBrandLinkedin,
   IconBrandX,
   IconExchange,
   IconHome,
   IconNewSection,
   IconTerminal2,
 } from "@tabler/icons-react";
+import { RevealBento } from "@/components/ui/RevealBento";
 
 export default function Home() {
   const links = [
@@ -22,7 +21,7 @@ export default function Home() {
       icon: (
         <IconHome className="h-full w-full text-neutral-500 dark:text-neutral-300" />
       ),
-      href: "#",
+      href: "/",
     },
  
     {
@@ -30,21 +29,14 @@ export default function Home() {
       icon: (
         <IconTerminal2 className="h-full w-full text-neutral-500 dark:text-neutral-300" />
       ),
-      href: "#",
+      href: "#Bento",
     },
     {
-      title: "Components",
+      title: "LinkedIn",
       icon: (
-        <IconNewSection className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+        <IconBrandLinkedin className="h-full w-full text-neutral-500 dark:text-neutral-300" />
       ),
-      href: "#",
-    },
-    {
-      title: "Changelog",
-      icon: (
-        <IconExchange className="h-full w-full text-neutral-500 dark:text-neutral-300" />
-      ),
-      href: "#",
+      href: "https://www.linkedin.com/in/jigyasumakkxr/",
     },
  
     {
@@ -67,14 +59,14 @@ export default function Home() {
       <div className="flex flex-col overflow-hidden w-100">
       <ContainerScroll
         titleComponent={
-          <>
-            <h1 className="text-4xl font-semibold text-black dark:text-white">
+          <div>
+            <h1 className="text-4xl font-semibold text-white">
               Power of building <br />
-              <span className="text-4xl md:text-[6rem] font-bold mt-1 leading-none">
+              <span className="text-6xl md:text-[6rem] font-bold mt-1 leading-none">
                 Great Projects
               </span>
             </h1>
-          </>
+          </div>
         }
       >
         <Image
@@ -87,11 +79,14 @@ export default function Home() {
         />
       </ContainerScroll>
     </div>
-    <div className="w-full flex justify-center fixed bottom-2">
-      <FloatingDock
+    <div className="w-full flex justify-center fixed bottom-2 z-50">
+      <FloatingDock 
           mobileClassName="translate-y-20" // only for demo, remove for production
           items={links}
         />
+    </div>
+    <div id="Bento">
+      <RevealBento />
     </div>
     </div>
   );
