@@ -66,6 +66,8 @@ const HeaderBlock = () => (
       src="https://imgtr.ee/images/2024/09/01/9c26b3e090e64746eddeee1019935e07.jpeg"
       alt="avatar"
       className="mb-4 size-14 rounded-full"
+      width={600}
+      height={400}
     />
     <h1 className="mb-12 text-4xl font-medium leading-tight">
       Hi, I&apos;m Jigyasu.{" "}
@@ -95,7 +97,7 @@ const SocialsBlock = () => (
         href="https://blog.jigyasumakkxr.online/"
         className="grid h-full place-content-center text-3xl text-white"
       >
-        <Image src="https://imgtr.ee/images/2024/09/01/2106cd0da9eac236d29519775035d3a6.png" alt="" className="h-9 w-fit" />
+        <Image src="https://imgtr.ee/images/2024/09/01/2106cd0da9eac236d29519775035d3a6.png" alt="" className="h-9 w-fit" width={600} height={400} />
       </a>
     </Block>
     <Block
@@ -123,7 +125,7 @@ const SocialsBlock = () => (
         href="https://payments.jigyasumakkxr.online/"
         className="grid h-full place-content-center text-3xl text-white"
       >
-        <Image src={paymentlogo} alt="" className="h-12 w-fit" />
+        <Image src={paymentlogo} alt="" className="h-12 w-fit" width={600} height={400} />
       </a>
     </Block>
     <Block
