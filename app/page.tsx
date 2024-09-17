@@ -81,7 +81,7 @@ export default function Home() {
   }, []);
   return (
     <div className="min-h-screen max-h-fit max-w-screen bg-zinc-900" suppressHydrationWarning={true}>
-      <div className="flex flex-col overflow-hidden w-full h-3/5 md:h-4/5 lg:h-screen">
+      <div className="flex flex-col overflow-hidden w-full h-96 md:h-4/5 lg:h-screen">
       <Canvas flat camera={{fov}}>
         <mesh>
           <ambientLight />
