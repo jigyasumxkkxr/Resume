@@ -1,7 +1,5 @@
 "use client";
-import React from "react";
-import { ContainerScroll } from "@/components/ui/container-scroll-animation";
-import Image from "next/image";
+import React, { useEffect, useState } from "react";
 import { FloatingDock } from "@/components/ui/floating-dock";
 import {
   IconBrandGithub,
@@ -13,6 +11,9 @@ import {
   IconTerminal2,
 } from "@tabler/icons-react";
 import { RevealBento } from "@/components/ui/RevealBento";
+import { Canvas } from "@react-three/fiber"
+import Cylinder from "@/components/ui/cylinder"
+import { Bloom, EffectComposer } from "@react-three/postprocessing"
 
 export default function Home() {
   const links = [
@@ -54,30 +55,48 @@ export default function Home() {
       href: "https://github.com/jigyasumxkkxr",
     },
   ];
+  const [fov, setFov] = useState(40); // Default fov
+
+  // Update FOV based on screen size
+  useEffect(() => {
+    const handleResize = () => {
+      // If screen width is less than 1024px (Tailwind 'lg'), set fov to 20, otherwise 40
+      if (window.innerWidth < 1024) {
+        setFov(20);
+      } else {
+        setFov(40);
+      }
+    };
+
+    // Call handleResize on component mount
+    handleResize();
+
+    // Add event listener to handle window resize
+    window.addEventListener('resize', handleResize);
+
+    // Cleanup event listener on component unmount
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
   return (
-    <div className="min-h-screen max-h-fit max-w-screen bg-black" suppressHydrationWarning={true}>
-      <div className="flex flex-col overflow-hidden w-100">
-      <ContainerScroll
-        titleComponent={
-          <div>
-            <h1 className="text-4xl font-semibold text-white">
-              Power of building <br />
-              <span className="text-6xl md:text-[6rem] font-bold mt-1 leading-none">
-                Great Projects
-              </span>
-            </h1>
-          </div>
-        }
-      >
-        <Image
-          src={`https://imgtr.ee/images/2024/08/23/df4a1d3268587ae71c3e7c462d0f5005.png`}
-          alt="hero"
-          height={720}
-          width={1400}
-          className="mx-auto rounded-2xl object-cover h-full object-left-top"
-          draggable={false}
-        />
-      </ContainerScroll>
+    <div className="min-h-screen max-h-fit max-w-screen bg-zinc-900" suppressHydrationWarning={true}>
+      <div className="flex flex-col overflow-hidden w-full h-3/5 md:h-4/5 lg:h-screen">
+      <Canvas flat camera={{fov}}>
+        <mesh>
+          <ambientLight />
+          <Cylinder />
+          <EffectComposer>
+            <Bloom
+              mipmapBlur  
+              intensity={2} 
+              luminanceThreshold={0.95} 
+              luminanceSmoothing={0.1} 
+              
+            />
+          </EffectComposer>
+        </mesh>
+      </Canvas>
     </div>
     <div className="w-full flex justify-center fixed bottom-2 z-50">
       <FloatingDock 
@@ -85,7 +104,7 @@ export default function Home() {
           items={links}
         />
     </div>
-    <div id="Bento">
+    <div id="Bento" className="bg-zinc-900">
       <RevealBento />
     </div>
     </div>

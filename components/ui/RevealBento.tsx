@@ -9,7 +9,7 @@ const paymentlogo = "/assets/Hands Give.svg"
 
 export const RevealBento = () => {
   return (
-    <div className="h-fit bg-black px-4 pt-12 pb-24 text-zinc-50">
+    <div className="h-fit bg-zinc-900 px-4 pt-12 pb-24 text-zinc-50">
       <motion.div
         initial="initial"
         animate="animate"
@@ -63,7 +63,7 @@ const Block = ({ className, ...rest }: BlockProps) => {
 const HeaderBlock = () => (
   <Block className="col-span-12 row-span-2 md:col-span-6">
     <Image
-      src="https://imgtr.ee/images/2024/09/01/9c26b3e090e64746eddeee1019935e07.jpeg"
+      src="/logo.jpg"
       alt="avatar"
       className="mb-4 size-14 rounded-full"
       width={600}
@@ -97,7 +97,7 @@ const SocialsBlock = () => (
         href="https://blog.jigyasumakkxr.online/"
         className="grid h-full place-content-center text-3xl text-white"
       >
-        <Image src="https://imgtr.ee/images/2024/09/01/2106cd0da9eac236d29519775035d3a6.png" alt="" className="h-9 w-fit" width={600} height={400} />
+        <Image src="/JK.png" alt="" className="h-9 w-fit" width={600} height={400} />
       </a>
     </Block>
     <Block
@@ -149,7 +149,7 @@ const SocialsBlock = () => (
 const Footer = () => {
   return (
     <Block
-      className="col-span-4 flex flex-col justify-center items-center gap-4 h-full md:col-span-12"
+      className="col-span-12 flex flex-col justify-center items-center gap-4 h-full md:col-span-12"
     >
       <p className="text-center text-lg text-zinc-400">Undergrad Mechanical Engineering IIT Jammu</p>
     </Block>
