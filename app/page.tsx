@@ -81,23 +81,25 @@ export default function Home() {
   }, []);
   return (
     <div className="min-h-screen max-h-fit max-w-screen bg-zinc-900" suppressHydrationWarning={true}>
-      <div className="flex flex-col overflow-hidden w-full h-96 md:h-4/5 lg:h-screen">
-      <Canvas flat camera={{fov}}>
-        <mesh>
-          <ambientLight />
-          <Cylinder />
-          <EffectComposer>
-            <Bloom
-              mipmapBlur  
-              intensity={2} 
-              luminanceThreshold={0.95} 
-              luminanceSmoothing={0.1} 
-              
-            />
-          </EffectComposer>
-        </mesh>
-      </Canvas>
-    </div>
+      <div className="flex flex-col overflow-hidden w-full min-h-fit max-h-screen">
+        <div className="h-2/5 md:h-2/5 lg:h-screen w-full">
+          <Canvas flat camera={{fov}}>
+            <mesh>
+              <ambientLight />
+              <Cylinder />
+              <EffectComposer>
+                <Bloom
+                  mipmapBlur  
+                  intensity={2} 
+                  luminanceThreshold={0.95} 
+                  luminanceSmoothing={0.1} 
+                  
+                />
+              </EffectComposer>
+            </mesh>
+          </Canvas>
+        </div>
+      </div>
     <div className="w-full flex justify-center fixed bottom-2 z-50">
       <FloatingDock 
           mobileClassName="translate-y-20" // only for demo, remove for production
